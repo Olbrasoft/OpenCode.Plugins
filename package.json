@@ -4,7 +4,8 @@
   "description": "OpenCode plugins collection - TypeScript plugins for OpenCode AI assistant",
   "type": "module",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && npm run bundle",
+    "bundle": "node scripts/bundle.mjs",
     "build:watch": "tsc --watch",
     "deploy": "npm run build && ./scripts/deploy.sh"
   },
@@ -18,6 +19,7 @@
   "license": "MIT",
   "devDependencies": {
     "@types/node": "^22.0.0",
+    "esbuild": "^0.27.1",
     "typescript": "^5.7.0"
   }
 }

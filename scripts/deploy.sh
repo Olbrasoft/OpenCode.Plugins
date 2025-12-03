@@ -1,20 +1,18 @@
 #!/bin/bash
-# Deploy compiled plugins to OpenCode plugin directory
+# Deploy bundled plugins to OpenCode plugin directory
 
 PLUGIN_DIR="$HOME/.config/opencode/plugin"
-DIST_DIR="$(dirname "$0")/../dist"
+BUNDLE_DIR="$(dirname "$0")/../bundle"
 
 # Ensure plugin directory exists
 mkdir -p "$PLUGIN_DIR"
 
-# Copy all compiled JS files
-for plugin_dir in "$DIST_DIR"/*/; do
-    if [ -d "$plugin_dir" ]; then
-        plugin_name=$(basename "$plugin_dir")
-        if [ -f "$plugin_dir/index.js" ]; then
-            cp "$plugin_dir/index.js" "$PLUGIN_DIR/${plugin_name}.js"
-            echo "✅ Deployed: ${plugin_name}.js"
-        fi
+# Copy all bundled JS files
+for bundle_file in "$BUNDLE_DIR"/*.js; do
+    if [ -f "$bundle_file" ]; then
+        plugin_name=$(basename "$bundle_file")
+        cp "$bundle_file" "$PLUGIN_DIR/$plugin_name"
+        echo "✅ Deployed: $plugin_name"
     fi
 done
 
