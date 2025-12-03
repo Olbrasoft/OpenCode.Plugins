@@ -1,0 +1,23 @@
+{
+  "name": "@olbrasoft/opencode-plugins",
+  "version": "1.0.0",
+  "description": "OpenCode plugins collection - TypeScript plugins for OpenCode AI assistant",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "deploy": "npm run build && ./scripts/deploy.sh"
+  },
+  "keywords": [
+    "opencode",
+    "plugins",
+    "ai",
+    "assistant"
+  ],
+  "author": "Olbrasoft",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.7.0"
+  }
+}
